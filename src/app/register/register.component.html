@@ -1,0 +1,61 @@
+<div class="loginCard">
+    <mat-card>
+        <mat-card-content>
+            <h3>Register</h3>
+            <form [formGroup]="registrationForm" (ngSubmit)="submitUser()">
+                <mat-form-field class="example-full-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="firstName">
+                    @if(this.registrationForm.get('firstName')?.hasError('required')){
+                    <mat-error>First Name is required</mat-error>
+                    }
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lastName">
+                    @if(this.registrationForm.get('lastName')?.hasError('required')){
+                    <mat-error>Last Name is required</mat-error>
+                    }
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="uemail">
+                    @if(this.registrationForm.get('uemail')?.hasError('required')){
+                    <mat-error>Email is required</mat-error>
+                    }
+                    @if(this.registrationForm.get('uemail')?.hasError('email')){
+                        <mat-error>Email format is improper</mat-error>
+                    }
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" [type]="hide ? 'password' : 'text'"  >
+                    <button type="button" mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                    @if(this.registrationForm.get('password')?.hasError('required')){
+                        <mat-error>Password is required</mat-error>
+                    }
+                    @if(this.registrationForm.get('password')?.hasError('minlength')){
+                        <mat-error>Password should be larger than 6 digits</mat-error>
+                    }
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput formControlName="address"></textarea>
+                    @if(this.registrationForm.get('address')?.hasError('required')){
+                        <mat-error>Address is required</mat-error>
+                    }
+                </mat-form-field>
+                <mat-radio-group aria-label="Select Gender" formControlName="gender">
+                    <span>Select Gender:</span>
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                </mat-radio-group>
+                <div class="btnContainer">
+                    <button mat-flat-button color="accent" type="submit">Register</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

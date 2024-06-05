@@ -1,0 +1,13 @@
+@if(!(currentUrl.includes('/home'))){
+    <div id="headerContainer">
+        <button mat-flat-button color="accent"><a routerLink="/" routerLinkActive="active">Login In</a></button>
+        <button mat-flat-button color="accent"><a routerLink="/register" routerLinkActive="active">Register User</a></button>
+    </div>
+}@else{
+    <div id="headerContainer">
+        <button mat-flat-button color="accent"><a routerLink="/" routerLinkActive="active" (click)="clearStorage()">Sign Out</a></button>
+    </div>
+}
+
+<router-outlet></router-outlet>
+

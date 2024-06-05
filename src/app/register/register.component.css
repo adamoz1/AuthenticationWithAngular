@@ -1,0 +1,18 @@
+.loginCard{
+    padding: 5% 30%;
+}
+
+.example-full-width {
+    width: 100%;
+  }
+
+h3 {
+    text-align: center;
+}
+
+.btnContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 20px 0px;
+}
